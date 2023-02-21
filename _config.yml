@@ -49,7 +49,7 @@ defaults:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "G-8W8WZSWJB5"
+    tracking_id: "UA-91386547-1"
     anonymize_ip: false # default
 
 
