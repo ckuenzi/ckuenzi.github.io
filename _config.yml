@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: The Eighty Percent
+title: The Twenty Percent
 email: mail@kuenzi.dev
 description: Personal Blog about electrical engineering, IT and finishing projects.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -51,6 +51,8 @@ analytics:
   google:
     tracking_id: "UA-91386547-1"
     anonymize_ip: false # default
+
+excerpt_separator: "<!--more-->"
 
 
 
