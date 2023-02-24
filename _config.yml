@@ -55,6 +55,8 @@ analytics:
 
 excerpt_separator: "<!--more-->"
 
+highlighter: rouge
+
 
 
 # Exclude from processing.
