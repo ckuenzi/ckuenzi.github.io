@@ -76,15 +76,18 @@ defaults:
     values:
       author_profile: true
 
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "UA-91386547-1"
-    anonymize_ip: false # default
+# analytics:
+#   provider: "google-gtag"
+#   google:
+#     tracking_id: "G-JCFYDY59EG"
+#     anonymize_ip: false # default
 
 excerpt_separator: "<!--more-->"
 
 highlighter: rouge
+
+google_analytics: G-JCFYDY59EG
+
 
 
 

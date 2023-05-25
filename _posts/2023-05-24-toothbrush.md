@@ -205,3 +205,13 @@ At the bottom of page 30 in the datasheet, NXP recommends generating the passwor
 
 All my tries to guess to one-way function for generating the passwords failed. Depending on the care that the Philips engineers took, guessing this function could be almost impossible. 
 But if you manage to solve this puzzle, feel free to hit me up with an E-mail.
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCFYDY59EG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JCFYDY59EG');
+</script>
