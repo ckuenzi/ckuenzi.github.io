@@ -36,6 +36,8 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-spaceship
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 
 author:
