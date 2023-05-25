@@ -125,7 +125,7 @@ After digging out my [HackRF](https://greatscottgadgets.com/hackrf/) [software d
 ### Record RF signal
 ![](/assets/images/toothbrush/sniffing_in_progress.jpg){: .align-center width="100%"}
 
-When opening [gqrx] and tuning it to 13.736 MHz while holding the toothbrush close to the antenna, it is visible that the head gets polled multiple times a second. It is a welcome surprise that my simple monopole antenna gets a signal that is strong enough for this purpose. You can download the relevant gqrx configuration file [here](/assets/files/gqrx.conf).
+When opening [gqrx](https://gqrx.dk/) and tuning it to 13.736 MHz while holding the toothbrush close to the antenna, it is visible that the head gets polled multiple times a second. It is a welcome surprise that my simple monopole antenna gets a signal that is strong enough for this purpose. You can download the relevant gqrx configuration file [here](/assets/files/gqrx.conf).
 
 ![](/assets/images/toothbrush/gqrx.png){: .align-center width="100%"}
 
