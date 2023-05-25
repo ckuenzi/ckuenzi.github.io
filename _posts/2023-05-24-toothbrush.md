@@ -66,53 +66,53 @@ Also using NFC Tools, the memory and memory access conditions can be read:
 
 |Address|Data|Type|Access|
 |--|--|--|--|
-|00|04:EC:FC:9C|UID0-UID2/BCC0|Read-Only|
-|01|A2:94:10:90|UID3-UDI6|Read-Only|
-|02|B6:48:FF:FF|BCC1/INT./LOCK0-LOCK1|Read-Only|
-|03|E1:10:12:00|OTP0-OTP3|Read-Only|
-|04|03:20:D1:01|DATA|Read-Only|
-|05|1C:55:02:70|DATA|Read-Only|
-|06|68:69:6C:69|DATA|Read-Only|
-|07|70:73:2E:63|DATA|Read-Only|
-|08|6F:6D:2F:6E|DATA|Read-Only|
-|09|66:63:62:72|DATA|Read-Only|
-|0A|75:73:68:68|DATA|Read-Only|
-|0B|65:61:64:74|DATA|Read-Only|
-|0C|61:70:FE:00|DATA|Read-Only|
-|0D-1E|00:00:00:00|DATA|Read-Only|
-|1F|00:01:07:00|DATA|Readable, write protected by PW|
-|20|00:00:00:02|DATA|Read-Only|
-|21|60:54:32:32|DATA|Read-Only|
-|22|31:32:31:34|DATA|Read-Only|
-|23|20:31:32:4B|DATA|Read-Only|
-|24|B3:02:02:00|DATA|Readable,write protected by PW|
-|25|00:00:00:00|DATA|Readable,write protected by PW|
-|26|00:00:00:00|DATA|Readable,write protected by PW|
-|27|00:00:00:01|DATA|Readable,write protected by PW|
-|28|00:03:30:BD|LOCK2 - LOCK4|Readable,write protected by PW|
-|29|04:00:00:10|CFG 0|Read-Only|
-|2A|43:00:00:00|CFG 1|Read-Only|
-|2B|00:00:00:00|PWD0-PWD3|Write-Only|
-|2C|00:00:00:00|PACK0-PACK1|Write-Only|
+|0x00|04:EC:FC:9C|UID0-UID2/BCC0|Read-Only|
+|0x01|A2:94:10:90|UID3-UDI6|Read-Only|
+|0x02|B6:48:FF:FF|BCC1/INT./LOCK0-LOCK1|Read-Only|
+|0x03|E1:10:12:00|OTP0-OTP3|Read-Only|
+|0x04|03:20:D1:01|DATA|Read-Only|
+|0x05|1C:55:02:70|DATA|Read-Only|
+|0x06|68:69:6C:69|DATA|Read-Only|
+|0x07|70:73:2E:63|DATA|Read-Only|
+|0x08|6F:6D:2F:6E|DATA|Read-Only|
+|0x09|66:63:62:72|DATA|Read-Only|
+|0x0A|75:73:68:68|DATA|Read-Only|
+|0x0B|65:61:64:74|DATA|Read-Only|
+|0x0C|61:70:FE:00|DATA|Read-Only|
+|0x0D...|00:00:00:00|DATA|Read-Only|
+|0x1F|00:01:07:00|DATA|Readable, write protected by PW|
+|0x20|00:00:00:02|DATA|Read-Only|
+|0x21|60:54:32:32|DATA|Read-Only|
+|0x22|31:32:31:34|DATA|Read-Only|
+|0x23|20:31:32:4B|DATA|Read-Only|
+|0x24|B3:02:02:00|DATA|Readable,write protected by PW|
+|0x25|00:00:00:00|DATA|Readable,write protected by PW|
+|0x26|00:00:00:00|DATA|Readable,write protected by PW|
+|0x27|00:00:00:01|DATA|Readable,write protected by PW|
+|0x28|00:03:30:BD|LOCK2 - LOCK4|Readable,write protected by PW|
+|0x29|04:00:00:10|CFG 0|Read-Only|
+|0x2A|43:00:00:00|CFG 1|Read-Only|
+|0x2B|00:00:00:00|PWD0-PWD3|Write-Only|
+|0x2C|00:00:00:00|PACK0-PACK1|Write-Only|
 
 I repeated this process for one black and two white [W DiamondClean](https://www.usa.philips.com/c-p/HX6062_65/sonicare-w-diamondclean-standard-sonic-toothbrush-heads) brush heads and learned the following:
-- Address 00-02 contains a unique ID and its checksum
-- Address 04-0C contains the link to the Philips store
-- Address 22 is 31:32:31:34 for black and 31:31:31:31 for white heads respectively
-- Address 24 contains the __total brush time__
+- Address 0x00-0x02 contains a unique ID and its checksum
+- Address 0x04-0x0C contains the link to the Philips store
+- Address 0x22 is 31:32:31:34 for black and 31:31:31:31 for white heads respectively
+- Address 0x24 contains the __total brush time__
 - All other readable data is identical between all heads
 
 ### Decoding the stored time
 Let's do an experiment to see what changes happen to the tag when using the toothbrush:
 1. Read the tag
-  - When reading a new brush head that has never been in contact with the data at addr. 24 is 00:00:02:00.
+  - When reading a new brush head that has never been in contact with the data at addr. 0x24 is 00:00:02:00.
   - Simply attaching it to the handle (without brushing) changes nothing
 2. Brush for some time
   - In this case, I let the toothbrush run for 5s
 3. Read the tag again
-  - The data at addr. 24 is now 05:00:02:00
+  - The data at addr. 0x24 is now 05:00:02:00
 4. Observe the difference 
-  - Looks like addr. 24 saves the number of seconds that the brush head was in use
+  - Looks like addr. 0x24 saves the number of seconds that the brush head was in use
 
 When the brush is used for more than 255s, this timer rolls over to the second bit (02:01:02:00 -> 258s).
 
@@ -152,8 +152,8 @@ I found the perfect tool for this task called [NFC-laboratory](https://github.co
 After opening the newly created WAV file, it should look something like the picture above. In this case, the recording is only good enough to see the communication that goes from host to tag (green arrow). But to sniff the password this is perfect.  
 When looking at the [datasheet](https://www.nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf#page=32) for the NTAG213, we can see what is happening:
 - Line #0-#6: communication is established with the tags' unique ID
-- Line #7: The toothbrush sends the __password__ (command 1B = PWD_AUTH)
-- Line #9: The time counter is updated to the new value (command A2 = WRITE)
+- Line #7: The toothbrush sends the __password__ (command 0x1B = PWD_AUTH)
+- Line #9: The time counter is updated to the new value (command 0xA2 = WRITE)
 - All lines below are repeated polling without password authentication or writing anything
 
 So the password for this brush head is __67:B3:8B:98__ (underlined in the picture).
@@ -174,24 +174,24 @@ Here is the breakdown of the command in step 3:
 |67:B3:8B:98|The password|
 |,|Package delimiter|
 |A2|WRITE|
-|24|To address 24|
+|24|To address 0x24|
 |00:00:02:00|Timer set to 0s|
 
 Below you can see the memory of the brush head before and after the custom NFC commands:
 
-{% include gallery id="gallery_nfc_update" caption="Observe how the timer at address 24 changes"%}
+{% include gallery id="gallery_nfc_update" caption="Observe how the timer at address 0x24 changes"%}
 
 With this, the toothbrush is now __successfully hacked__ and we can play around with the timer as we wish.
 
 Here are some interesting observations:
-- Only the first two bytes at address 24 are used for timekeeping.  Once the counter reaches FF:FF:02:00 it stops going up (18 hours of continuous brushing).  
+- Only the first two bytes at address 0x24 are used for timekeeping.  Once the counter reaches FF:FF:02:00 it stops going up (18 hours of continuous brushing).  
 - When the stored time is greater than 0x5460 the toothbrush blinks the LED to notify you to change heads. This corresponds to 21’600s -> 180 x 2min -> 3 months of brushing twice a day, which is exactly in line with Philips recommendation to change heads every 3 months.
 
 ## Final Remarks
 
 ### Password verification protection
 You might have noticed the color of the brush head changing throughout of this post. This is because I had to run out and buy a new one after getting locked out of the first one.  
-When having a close look at the contents of address 2A which is 43:00:00:00 and [page 18](https://www.nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf#page=18) of the datasheet, we can see that the tag is configured to permanently disable all write access after three wrong password attempts. (Which I promptly exceeded when playing around) This means that not even the toothbrush handle itself can write to this head again.
+When having a close look at the contents of address 0x2A which is 43:00:00:00 and [page 18](https://www.nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf#page=18) of the datasheet, we can see that the tag is configured to permanently disable all write access after three wrong password attempts. (Which I promptly exceeded when playing around) This means that not even the toothbrush handle itself can write to this head again.
 
 ### Password generation
 Unfortunately, the password of every brush head is unique and this process of extracting it with an SDR is quite involved and requires special hardware. 
