@@ -206,6 +206,15 @@ At the bottom of page 30 in the datasheet, NXP recommends generating the passwor
 All my tries to guess to one-way function for generating the passwords failed. Depending on the care that the Philips engineers took, guessing this function could be almost impossible. 
 But if you manage to solve this puzzle, feel free to hit me up with an E-mail.
 
+## Update (August 16, 2023)
+After publishing this article, I was pleasantly surprised to see it picked up by some big news sites such as [Hacker News](https://news.ycombinator.com/item?id=36128617) and [Hackaday](https://hackaday.com/2023/05/27/hacking-a-smart-electric-toothbrush-to-reset-its-usage-counter/). The resulting discussions and comments proved to be both enlightening and entertaining. Thanks to everyone who dropped positive comments and messages!  
+A special shoutout has to go to [Aaron Christophel](https://www.youtube.com/@atc1441) who got inspired by this post to:
+- Dump and reverse engineer the Philips Sonicare firmware to extract the password generation algorithm: [Video](https://www.youtube.com/watch?v=EPytrn8i8sc)
+- Wrote a password generator: [GitHub](https://gist.github.com/atc1441/41af75048e4c22af1f5f0d4c1d94bb56)
+- And just for fun, he made the toothbrush bust out a  [Rick Roll](https://www.youtube.com/watch?v=OkfS_z0FrlE)  
+
+Please go check his content if you are interested in the solution to the puzzle.
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCFYDY59EG"></script>
 <script>

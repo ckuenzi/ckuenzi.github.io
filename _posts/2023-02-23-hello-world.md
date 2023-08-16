@@ -70,3 +70,13 @@ There are many things that I'm not yet sure of, such as the writing style/tone a
 When this subsection is written, I successfully completed my first Project. All the technical stuff was pleasantly straightforward without any unforeseen difficulties. It was also interesting to actively observe the dip in motivation once I had to start writing, which easily took 80% of my effort. It will also be interesting how that plays out with future projects that are not _this_ meta and need writing in addition to the rest of the challenges.  
 For the future, it would be lovely to not procrastinate as much as I did once the hard part inevitably showed up. But carefully observing the dip in motivation and the experience of having pushed through will hopefully help with that.
 In the end, I'm satisfied with the outcome of this project, as all of the goals were satisfied and I now have a product that can be easily used for future posts.
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCFYDY59EG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JCFYDY59EG');
+</script>
